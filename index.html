@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Экранная клавиатура</title>
+  <link rel="stylesheet" href="styles.css">
+  <script src="calculator.js" defer></script>
+</head>
+<body>
+  <div class="container">
+    <h2>Калькулятор</h2>
+    <div class="calculator">
+      <input id="display" class="display" type="text" value="0" readonly aria-label="Экран калькулятора">
+
+      <div class="history">
+        <div class="history-header">
+          <strong>История</strong>
+          <button id="clearHistory" class="key small">Очистить</button>
+        </div>
+        <ul id="historyList" class="history-list" aria-live="polite"></ul>
+      </div>
+
+      <div class="keyboard calc">
+        <div class="row">
+          <button class="key special" data-action="clear">C</button>
+          <button class="key special" data-action="backspace">⌫</button>
+          <button class="key special" data-action="percent">%</button>
+          <button class="key operator" data-key="÷">÷</button>
+        </div>
+
+        <div class="row">
+          <button class="key" data-key="7">7</button>
+          <button class="key" data-key="8">8</button>
+          <button class="key" data-key="9">9</button>
+          <button class="key operator" data-key="×">×</button>
+        </div>
+
+        <div class="row">
+          <button class="key" data-key="4">4</button>
+          <button class="key" data-key="5">5</button>
+          <button class="key" data-key="6">6</button>
+          <button class="key operator" data-key="-">−</button>
+        </div>
+
+        <div class="row">
+          <button class="key" data-key="1">1</button>
+          <button class="key" data-key="2">2</button>
+          <button class="key" data-key="3">3</button>
+          <button class="key operator" data-key="+">+</button>
+        </div>
+
+        <div class="row">
+          <button class="key special" data-action="plusminus">±</button>
+          <button class="key" data-key="0">0</button>
+          <button class="key" data-key=".">.</button>
+          <button class="key special" data-action="equals">=</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
