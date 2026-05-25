@@ -2,6 +2,24 @@
   const display = document.getElementById('display');
   const keyboard = document.querySelector('.keyboard.calc');
 
+  // Theme handling
+  const THEME_KEY = 'theme_pref';
+  const themeToggle = document.getElementById('themeToggle');
+  function applyTheme(theme){
+    if(theme === 'dark') document.documentElement.classList.add('dark');
+    else document.documentElement.classList.remove('dark');
+    if(themeToggle) themeToggle.textContent = theme === 'dark' ? '☀️' : '🌙';
+  }
+  const savedTheme = localStorage.getItem(THEME_KEY) || (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+  applyTheme(savedTheme);
+  if(themeToggle){
+    themeToggle.addEventListener('click', ()=>{
+      const next = document.documentElement.classList.contains('dark') ? 'light' : 'dark';
+      localStorage.setItem(THEME_KEY, next);
+      applyTheme(next);
+    });
+  }
+
   let firstValue = null;
   let operator = null;
   let waitingForSecond = false;
